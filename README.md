@@ -23,6 +23,8 @@ To run, you need to specify a URL to start fuzzing.
 
 After you put the name in the input and pressed enter, you select the wordlist.
 
+# *WORDLISTS*
+
 There are 13 default wordlists to choose:
 
 
@@ -52,7 +54,7 @@ There are 13 default wordlists to choose:
 
 *Common API endpoints*
 
-# EXTRA FUNCTIONALITIES
+# *EXTRA FUNCTIONALITIES*
 
 You can set some others configurations, such as:
 
@@ -66,7 +68,7 @@ You can set some others configurations, such as:
 
 When you start a new fuzz, a terminal with ffuf running will appear.
 
-# HOW TO ADD NEW WORDLISTS?
+# *HOW TO ADD NEW WORDLISTS?*
 
 The hiper fuzz allow you to put your own wordlist. 
 
