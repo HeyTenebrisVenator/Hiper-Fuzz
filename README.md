@@ -7,7 +7,7 @@ To install, you can run the install.py command
 
 ```sudo python3 install.py```
 
-*HOW IT WORKS?*
+# *HOW IT WORKS?*
 
 The Hiper Fuzz is a tool that has a GUI made with tkinter. It was made with the purpose to be like dirbuster, but with some nem functionalitites
 
@@ -52,7 +52,7 @@ There are 13 default wordlists to choose:
 
 *Common API endpoints*
 
-EXTRA FUNCTIONALITIES
+# EXTRA FUNCTIONALITIES
 
 You can set some others configurations, such as:
 
@@ -64,7 +64,7 @@ You can set some others configurations, such as:
 
 When you start a new fuzz, a terminal with ffuf running will appear.
 
-HOW TO ADD NEW WORDLISTS?
+# HOW TO ADD NEW WORDLISTS?
 
 The hiper fuzz allow you to put your own wordlist. 
 
