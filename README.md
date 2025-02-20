@@ -54,7 +54,7 @@ There are 13 default wordlists to choose:
 
 *Common API endpoints*
 
-# *EXTRA FUNCTIONALITIES*
+# *EXTRA FEATURES*
 
 You can set some others configurations, such as:
 
