@@ -62,6 +62,8 @@ You can set some others configurations, such as:
 
 *Rate Limit* - This can be used to bypass some types of firewalls. You specify the maximum number of requests per second
 
+*Save Output* - Is the location were you want to save your output
+
 When you start a new fuzz, a terminal with ffuf running will appear.
 
 # HOW TO ADD NEW WORDLISTS?
