@@ -1,0 +1,47 @@
+button {
+    text-align: center;
+    font-size: large;
+    border-radius: 10px;
+    height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    border: none;
+    background-color: grey;
+}
+input {
+    text-align: center;
+    font-size: 25px;
+    border-radius: 10px;
+}
+h1 {
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.code_200 {
+    color: green;
+}
+.code_404 {
+    color: red;
+}
+.code_403 {
+    color:  red;
+}
+.code_300 {
+    color: yellow;
+}
+.code_301 {
+    color: yellow;
+}
+.code_302 {
+    color: yellow;
+}
+.code_303 {
+    color: yellow;
+}
+.fuzz {
+    color: white;
+    background-color: black;
+    height: auto;
+    font-size: 50px;
+}

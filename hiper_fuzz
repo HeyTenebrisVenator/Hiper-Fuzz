@@ -1,0 +1,103 @@
+import os
+from flask import Flask,jsonify,request,send_file
+from flask_cors import CORS
+import requests
+app = Flask(__name__)
+cors = CORS(app)
+
+home_dir = os.path.expanduser('~')
+
+print('Checking the existence of the ~/.WORDLISTS_FOR_HIPER')
+
+try:
+    os.mkdir(home_dir + '/.WORDLISTS_FOR_HIPER')
+    print('OK')
+    os.system(f'cp -r datas/wordlists/* {home_dir}/.WORDLISTS_FOR_HIPER')
+except:
+    print('ERROR')
+
+
+@app.route('/')
+def home():
+    return send_file('datas/page.html')
+
+@app.route('/style.css')
+def style():
+    return send_file('datas/style.css')
+
+@app.route('/script.js')
+def script():
+    return send_file('datas/script.js')
+
+@app.route('/api')
+def api():
+    #URL 
+    url = request.args.get('url')
+    url_completed = request.args.get('complete_url') 
+    wordlist = request.args.get('wordlist')
+    if wordlist != None:
+        try:
+            if wordlist == 'common':
+                wordlist = 'common.txt'
+            elif wordlist == 'big':
+                wordlist = 'big.txt'
+            elif wordlist == 'apache':
+                wordlist = 'apache.txt'
+            elif wordlist == 'api':
+                wordlist = 'api_common.txt'
+            elif wordlist == 'aspx':
+                wordlist = 'aspx.txt'
+            elif wordlist == 'cves':
+                wordlist = 'cvePaths.txt'
+            elif wordlist == 'frontpages':
+                wordlist = 'frontpage.txt'
+            elif wordlist == 'graphql':
+                wordlist = 'graphql.txt'
+            elif wordlist == 'iis':
+                wordlist = 'iis.txt'
+            elif wordlist == 'login':
+                wordlist = 'logins.txt'
+            elif wordlist == 'oracle':
+                wordlist = 'oracle.txt'
+            elif wordlist == 'tomcat':
+                wordlist = 'tomcat.txt'
+            elif wordlist == 'weblogic':
+                wordlist = 'weblogic.txt'
+        
+        except:
+            pass
+
+    cookie = request.args.get('cookies')
+    rate = request.args.get('rate')
+    header = request.args.get('header')
+    output = request.args.get('output')
+    print(cookie, rate, header, output)
+    extra_data = ''
+
+
+    print(url_completed)
+    print(wordlist)
+    if url != None:
+        try:
+            return jsonify(requests.get(url).status_code)
+        except:
+            return jsonify(0)
+    else:
+        try:
+            requests.get(url_completed)
+            extra_data = ''
+            if cookie != '':
+                extra_data += f'-H "Cookie: {cookie}"'
+            if rate != '':
+                extra_data += f' -rate {rate}'
+            if header != '':
+                extra_data += f' -H "{header}"'
+            if output != '':
+                extra_data += f' -o "{output}"'
+            os.system(f'sudo gnome-terminal -- sh -c  \'ffuf {extra_data} -s -sf -recursion -w {home_dir}/.WORDLISTS_FOR_HIPER/{wordlist} -u {url_completed}/FUZZ; bash\'')
+            print(f'sudo gnome-terminal -- sh -c  \'ffuf {extra_data} -s -sf -recursion -w {home_dir}/.WORDLISTS_FOR_HIPER/{wordlist} -u {url_completed}/FUZZ; bash\'')
+            return 'OK'
+        except:
+            return jsonify('ERROR')
+
+app.run(debug=True, host='0.0.0.0', port=4444)

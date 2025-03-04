@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiper Fuzz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Hiper Fuzz</h1>
+    <input size="50" id="URL" type="text" placeholder="URL"><button onmousedown="url_collect()">SEND</button>
+    <div id="Data_received"></div>
+    <div style="display: none;" id="all">
+        <button onmousedown="document.getElementById('wordlist').value = 'common'">COMMON WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'big'">BIG WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'apache'">APACHE WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'api'">COMMON API ENDPOINTS WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'aspx'">ASPX WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'cves'">COMMON CVES WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'frontpages'">FRONTPAGES WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'graphql'">GRAPHQL WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'iis'">IIS WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'login'">COMMON LOGIN PAGES WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'oracle'">ORACLE WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'tomcat'">TOMCAT WORDLIST</button><br><br>
+        <button onmousedown="document.getElementById('wordlist').value = 'weblogic'">WEBLOGIC WORDLIST</button><br><br>
+        <input type="hidden" name="selected wordlist" id="wordlist">
+        <input type="hidden" name="url_name" id="url_collected">
+        <h3>EXTRA</h3>
+        <input size="40" type="text" name="cookie_name" id="cookie" placeholder="Cookies"><br>
+        <input size="40" type="text" name="rate_name" id="rate" placeholder="rate"><br>
+        <input size="40" type="text" name="header_name" id="header" placeholder="Header"><br>
+        <input size="40" type="text" name="output_name" id="output" placeholder="Output"><br>
+    
+    
+        <br><br><br>
+        <button class="fuzz" onmousedown="fuzz()">FUZZ!</button>
+        <div id="completed"></div>
+    </div>
+
+</body>
+</html>
